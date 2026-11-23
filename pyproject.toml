@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chain"
+version = "0.1.0"
+description = "Système agentique d'écriture de code"
+authors = [
+    {name = "Chloé", email = "chloetchienang@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph",
+    "langchain-anthropic",
+    "python-dotenv",
+    "pytest",
+]
+
+[project.optional-dependencies]
+dev = ["ruff"]
+report = ["pandas", "matplotlib"]   # plus tard, pour les graphiques du benchmark
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["runs", "results"]  # Dossiers de sortie des agents
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
